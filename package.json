@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Ayovert/Nasa-Project#readme",
   "description": "",
   "dependencies": {
+    "axios": "^1.4.0",
     "mongoose": "^7.0.3"
   }
 }
