@@ -40,23 +40,29 @@ async function saveLaunch(launch) {
 }
 
 async function scheduleNewLaunch(launch) {
-  const planet = await planets.findOne({
-    keplerName: launch.target,
-  });
 
-  if (!planet) {
-    throw new Error("No matching planet found");
+  try{
+    const planet = await planets.findOne({
+      keplerName: launch.target
+    });
+  
+    if (!planet) {
+      throw new Error("No matching planet found");
+    }
+  
+    const newFlightNumber = (await getLatestFlightNumber()) + 1;
+    const newLaunch = Object.assign(launch, {
+      customers: ["ZTM", "NASA"],
+      upcoming: true,
+      success: true,
+      flightNumber: newFlightNumber,
+    });
+  
+    await saveLaunch(newLaunch);
+  }catch(err){
+    console.error(err)
   }
-
-  const newFlightNumber = (await getLatestFlightNumber()) + 1;
-  const newLaunch = Object.assign(launch, {
-    customers: ["ZTM", "NASA"],
-    upcoming: true,
-    success: true,
-    flightNumber: newFlightNumber,
-  });
-
-  await saveLaunch(newLaunch);
+  
 }
 
 const SpaceX_API_URL = "https://api.spacexdata.com/v4/launches/query";
