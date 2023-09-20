@@ -28,3 +28,7 @@ app.get('/*', (req, res) => {
 
 
 module.exports = app;
+
+//install-client causes error, use client-install instead.. you feel me
+
+//can use image url in docker hub as FROM
