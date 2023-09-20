@@ -2,15 +2,21 @@
   "name": "nasaproject",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.0"
+  },
   "scripts": {
-    "install-server": "npm install --prefix server",
-    "install-client": "npm install --prefix client",
-    "install": "npm run install-server && npm run install-client",
+    "server-install": "npm install --prefix server",
+    "client-install": "npm install --prefix client",
+    "every-install": "npm run install-server && npm run install-client",
     "server": "npm run watch --prefix server",
     "client": "npm start --prefix client",
     "watch": "npm run server & npm run client",
-    "deploy": "npm run build --prefix client && npm start --prefix server",
-    "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "deploy": "npm run build-windows --prefix client && npm start --prefix server",
+    "deploy-cluster": "npm run build-windows --prefix client && npm run cluster --prefix server",
     "test": "npm run test --prefix server && npm run test --prefix client"
   },
   "keywords": [],
@@ -24,5 +30,5 @@
     "url": "https://github.com/Ayovert/Nasa-Project/issues"
   },
   "homepage": "https://github.com/Ayovert/Nasa-Project#readme",
-  "description": ""
+ "commentsFor&and&&":"https://srinivasankk.com/npm-scripts-with-and-operators/#:~:text=%26%26%20operator%20is%20to%20run%20npm%20scripts%20sequentially.&text=%26%20operator%20is%20to%20run%20npm%20scripts%20concurrently." 
 }
